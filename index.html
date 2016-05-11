@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<script type="application/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+		<script type="application/javascript" src="interjector.js"></script>
+		<link rel="stylesheet" type="text/css" href="interjector.css"/>
+		<title>The Interjector</title>
+	</head>
+	<body id="interjector">
+		<h1>The Interjector</h1>
+
+		<h2>Fields</h2>
+		<form action="#">
+			<div class="line">
+				<label for="ijtr-fill-gnu">It is in fact</label>
+				<input type="text" value="GNU" id="ijtr-fill-gnu"/>/<input type="text" value="Linux" id="ijtr-fill-linux"/>
+			</div>
+			<div class="line">
+				<label for="ijtr-fill-linux">Made useful by the</label>
+				<input type="text" value="GNU corelibs, shell utilities and vital system components" id="ijtr-fill-components" class="long"/>
+			</div>
+			<div class="line">
+				<label for="ijtr-fill-os">Comprising a full</label>
+				<input type="text" id="ijtr-fill-os" value="OS"/>
+				<label for="ijtr-fill-posix">as defined by</label>
+				<input type="text" id="ijtr-fill-posix" value="POSIX"/>
+			</div>
+			<div class="line">
+				<label for="ijtr-fill-project">"G" is developed by the</label>
+				<input type="text" id="ijtr-fill-project" value="GNU Project"/>
+			</div>
+			<div class="line">
+				<label for="ijtr-fill-kernel">"L" is the</label>
+				<input type="text" value="kernel" id="ijtr-fill-kernel"/>,
+				<label for="ijtr-fill-kernel-role">which is</label>
+				<input type="text" value="the program in the system that allocates the machine's resources to the other programs that you run" id="ijtr-fill-kernel-role" class="long"/>
+			</div>
+			<div class="line">
+				<label for="ijtr-fill-osys">"L" is an essential part of</label>
+				(<input type="radio" name="option-a-an" id="ijtr-option-a"/><label for="ijtr-option-a">a</label> <input type="radio" name="option-a-an" id="ijtr-option-an" checked="checked"/><label for="ijtr-option-an">an</label>)
+				<input type="text" value="operating system" id="ijtr-fill-osys"/>
+			</div>
+		</form>
+
+		<h2>Copypasta</h2>
+		<p>I'd just like to interject for a moment. What you're referring to as <span class="tied tied-linux">Linux</span>, is in fact, <span class="tied tied-gnu">GNU</span>/<span class="tied tied-linux">Linux</span>, or as I've recently taken to calling it, <span class="tied tied-gnu">GNU</span> plus <span class="tied tied-linux">Linux</span>. <span class="tied tied-linux">Linux</span> is not an operating system unto itself, but rather another free component of a fully functioning <span class="tied tied-gnu">GNU</span> system made useful by the <span class="tied tied-components">GNU corelibs, shell utilities and vital system components</span> comprising a full <span class="tied tied-os">OS</span> as defined by <span class="tied tied-posix">POSIX</span>. Many computer users run a modified version of the <span class="tied tied-gnu">GNU</span> system every day, without realizing it. Through a peculiar turn of events, the version of <span class="tied tied-gnu">GNU</span> which is widely used today is often called "<span class="tied tied-linux">Linux</span>", and many of its users are not aware that it is basically the <span class="tied tied-gnu">GNU</span> system, developed by the <span class="tied tied-project">GNU Project</span>. There really is a <span class="tied tied-linux">Linux</span>, and these people are using it, but it is just a part of the system they use. <span class="tied tied-linux">Linux</span> is the <span class="tied tied-kernel">kernel</span>: <span class="tied tied-kernel-role">the program in the system that allocates the machine's resources to the other programs that you run</span>. The <span class="tied tied-kernel">kernel</span> is an essential part of <span class="tied tied-a-an">an</span> <span class="tied tied-osys">operating system</span>, but useless by itself; it can only function in the context of a complete <span class="tied tied-osys">operating system</span>. <span class="tied tied-linux">Linux</span> is normally used in combination with the <span class="tied tied-gnu">GNU</span> operating system: the whole system is basically <span class="tied tied-gnu">GNU</span> with <span class="tied tied-linux">Linux</span> added, or <span class="tied tied-gnu">GNU</span>/<span class="tied tied-linux">Linux</span>. All the so-called "<span class="tied tied-linux">Linux</span>" distributions are really distributions of <span class="tied tied-gnu">GNU</span>/<span class="tied tied-linux">Linux</span>.</p>
+
+		<h2>Notes</h2>
+		<div class="notes"><a href="https://github.com/jack126guy/interjector">Github</a> <a href="js-licenses.html">JavaScript Licenses</a></div>
+	</body>
+</html>
