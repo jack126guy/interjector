@@ -1,8 +1,8 @@
 $(function() {
 	//Update "tied" elements on each change of the "fill" input
 	interjector.fillNames.forEach(function(name) {
-		$('#ijtr-fill-' + name).keyup(function() {
-			$('#interjector .tied-' + name).text($('#ijtr-fill-' + name).val());
+		interjector.registerUpdateHandler(name, function() {
+			interjector.setTiedText(name, interjector.getFillText(name));
 		});
 	});
 	//Deal with "a/an" selection
@@ -27,4 +27,24 @@ var interjector = {
 		'kernel-role',
 		'osys',
 	],
+	//Get the element for filling in the value
+	getFillElement: function(name) {
+		return $('#ijtr-fill-' + name);
+	},
+	//Get the elements that are tied to the value
+	getTiedElements: function(name) {
+		return $('#interjector .tied-' + name);
+	},
+	//Register an event handler on update
+	registerUpdateHandler: function(name, handler) {
+		this.getFillElement(name).keyup(handler);
+	},
+	//Get the filled text
+	getFillText: function(name) {
+		return this.getFillElement(name).val();
+	},
+	//Set the text on the tied elements
+	setTiedText: function(name, text) {
+		this.getTiedElements(name).text(text);
+	},
 }
