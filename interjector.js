@@ -1,17 +1,6 @@
 $(function() {
-	//Update "tied" elements on each change of the "fill" input
-	interjector.fillNames.forEach(function(name) {
-		interjector.registerUpdateHandler(name, function() {
-			interjector.setTiedText(name, interjector.getFillText(name));
-		});
-	});
-	//Deal with "a/an" selection
-	$('#ijtr-option-a').click(function() {
-		$('#interjector .tied-a-an').text('a');
-	});
-	$('#ijtr-option-an').click(function() {
-		$('#interjector .tied-a-an').text('an');
-	});
+	interjector.registerFillUpdates();
+	interjector.registerAAnUpdates();
 });
 
 var interjector = {
@@ -46,5 +35,24 @@ var interjector = {
 	//Set the text on the tied elements
 	setTiedText: function(name, text) {
 		this.getTiedElements(name).text(text);
+	},
+	//Update "tied" elements on each change of the "fill" input
+	registerFillUpdates: function() {
+		var t = this;
+		this.fillNames.forEach(function(name) {
+			t.registerUpdateHandler(name, function() {
+				t.setTiedText(name, t.getFillText(name));
+			});
+		});
+	},
+	//Deal with "a/an" selection
+	registerAAnUpdates: function() {
+		var t = this;
+		$('#ijtr-option-a').click(function() {
+			t.setTiedText('a-an', 'a');
+		});
+		$('#ijtr-option-an').click(function() {
+			t.setTiedText('a-an', 'an');
+		});
 	},
 }
