@@ -1,11 +1,6 @@
 $(function() {
-	interjector.registerFillUpdates();
-	interjector.registerAAnUpdates();
-});
-
-var interjector = {
 	//Names of classes to update
-	fillNames: [
+	var fillNames = [
 		'linux',
 		'gnu',
 		'components',
@@ -15,44 +10,52 @@ var interjector = {
 		'kernel',
 		'kernel-role',
 		'osys',
-	],
+	];
+
 	//Get the element for filling in the value
-	getFillElement: function(name) {
+	function getFillElement(name) {
 		return $('#ijtr-fill-' + name);
-	},
+	}
+
 	//Get the elements that are tied to the value
-	getTiedElements: function(name) {
+	function getTiedElements(name) {
 		return $('#interjector .tied-' + name);
-	},
+	}
+
 	//Register an event handler on update
-	registerUpdateHandler: function(name, handler) {
-		this.getFillElement(name).keyup(handler);
-	},
+	function registerUpdateHandler(name, handler) {
+		getFillElement(name).keyup(handler);
+	}
+
 	//Get the filled text
-	getFillText: function(name) {
-		return this.getFillElement(name).val();
-	},
+	function getFillText(name) {
+		return getFillElement(name).val();
+	}
+
 	//Set the text on the tied elements
-	setTiedText: function(name, text) {
-		this.getTiedElements(name).text(text);
-	},
+	function setTiedText(name, text) {
+		getTiedElements(name).text(text);
+	}
+
 	//Update "tied" elements on each change of the "fill" input
-	registerFillUpdates: function() {
-		var t = this;
-		this.fillNames.forEach(function(name) {
-			t.registerUpdateHandler(name, function() {
-				t.setTiedText(name, t.getFillText(name));
+	function registerFillUpdates() {
+		fillNames.forEach(function(name) {
+			registerUpdateHandler(name, function() {
+				setTiedText(name, getFillText(name));
 			});
 		});
-	},
+	}
+
 	//Deal with "a/an" selection
-	registerAAnUpdates: function() {
-		var t = this;
+	function registerAAnUpdates() {
 		$('#ijtr-option-a').click(function() {
-			t.setTiedText('a-an', 'a');
+			setTiedText('a-an', 'a');
 		});
 		$('#ijtr-option-an').click(function() {
-			t.setTiedText('a-an', 'an');
+			setTiedText('a-an', 'an');
 		});
-	},
-}
+	}
+
+	registerFillUpdates();
+	registerAAnUpdates();
+});
