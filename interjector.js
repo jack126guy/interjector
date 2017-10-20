@@ -39,7 +39,7 @@ $(function() {
 
 	//Update "tied" elements on each change of the "fill" input
 	function registerFillUpdates() {
-		fillNames.forEach(function(name) {
+		$.each(fillNames, function(i, name) {
 			registerUpdateHandler(name, function() {
 				setTiedText(name, getFillText(name));
 			});
