@@ -1,4 +1,6 @@
-$(function() {
+(function(document) {
+	'use strict';
+
 	//Names of classes to update
 	var fillNames = [
 		'linux',
@@ -14,48 +16,55 @@ $(function() {
 
 	//Get the element for filling in the value
 	function getFillElement(name) {
-		return $('#ijtr-fill-' + name);
+		return document.getElementById('ijtr-fill-' + name);
 	}
 
 	//Get the elements that are tied to the value
 	function getTiedElements(name) {
-		return $('#interjector .tied-' + name);
+		return document.querySelectorAll('#interjector .tied-' + name);
 	}
 
 	//Register an event handler on update
-	function registerUpdateHandler(name, handler) {
-		getFillElement(name).keyup(handler);
+	function registerUpdateHandler(name) {
+		getFillElement(name).addEventListener('keyup', function() {
+			setTiedText(name, getFillText(name));
+		});
 	}
 
 	//Get the filled text
 	function getFillText(name) {
-		return getFillElement(name).val();
+		return getFillElement(name).value;
 	}
 
 	//Set the text on the tied elements
 	function setTiedText(name, text) {
-		getTiedElements(name).text(text);
+		var tiedElements = getTiedElements(name);
+		for (var i = 0; i < tiedElements.length; i++) {
+			tiedElements[i].textContent = text;
+		};
 	}
 
 	//Update "tied" elements on each change of the "fill" input
 	function registerFillUpdates() {
-		$.each(fillNames, function(i, name) {
-			registerUpdateHandler(name, function() {
-				setTiedText(name, getFillText(name));
-			});
-		});
+		for (var i = 0; i < fillNames.length; i++) {
+			registerUpdateHandler(fillNames[i]);
+		};
 	}
 
 	//Deal with "a/an" selection
 	function registerAAnUpdates() {
-		$('#ijtr-option-a').click(function() {
-			setTiedText('a-an', 'a');
-		});
-		$('#ijtr-option-an').click(function() {
-			setTiedText('a-an', 'an');
-		});
+		document.getElementById('ijtr-option-a')
+			.addEventListener('click', function() {
+				setTiedText('a-an', 'a');
+			});
+		document.getElementById('ijtr-option-an')
+			.addEventListener('click', function() {
+				setTiedText('a-an', 'an');
+			});
 	}
 
-	registerFillUpdates();
-	registerAAnUpdates();
-});
+	document.addEventListener('DOMContentLoaded', function() {
+		registerFillUpdates();
+		registerAAnUpdates();
+	});
+})(document);
