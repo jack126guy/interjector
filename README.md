@@ -6,7 +6,7 @@ The Interjector is a simple browser-based application for creating your own vers
 
 ## Requirements
 
-* jQuery
+* Almost any Web browser released since 2011, including Internet Explorer 9 or later (based on compatibility information at [caniuse.com](https://caniuse.com/))
 
 ## License
 
