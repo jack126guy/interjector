@@ -63,8 +63,6 @@
 			});
 	}
 
-	document.addEventListener('DOMContentLoaded', function() {
-		registerFillUpdates();
-		registerAAnUpdates();
-	});
+	registerFillUpdates();
+	registerAAnUpdates();
 })(document);
