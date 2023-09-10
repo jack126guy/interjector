@@ -19,10 +19,3 @@
 	width: 50em;
 	max-width: 100%;
 }
-#interjector .notes {
-	list-style-type: none;
-	padding-left: 0px;
-}
-#interjector .notes li {
-	display: inline-block;
-}
