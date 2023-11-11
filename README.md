@@ -1,6 +1,6 @@
 # The Interjector
 
-[Live demo](https://jack126guy.github.io/interjector/)
+[Live demo](https://www.halfgray.xyz/interjector/)
 
 The Interjector is a simple browser-based application for creating your own version of the "GNU/Linux interjection," commonly attributed to Richard Stallman.
 
