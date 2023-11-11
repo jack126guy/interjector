@@ -1,3 +1,8 @@
+#interjector {
+	margin: 1em auto;
+	padding: 0em 1em;
+	max-width: 50em;
+}
 #interjector * {
 	font-family: monospace;
 }
