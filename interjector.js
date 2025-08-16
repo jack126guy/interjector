@@ -52,14 +52,9 @@ THE SOFTWARE.
 
 	//Register an event handler on update
 	function registerUpdateHandler(name) {
-		getFillElement(name).addEventListener('keyup', function() {
-			setTiedText(name, getFillText(name));
+		getFillElement(name).addEventListener('keyup', function (e) {
+			setTiedText(name, e.target.value);
 		});
-	}
-
-	//Get the filled text
-	function getFillText(name) {
-		return getFillElement(name).value;
 	}
 
 	//Set the text on the tied elements
