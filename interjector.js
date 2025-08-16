@@ -1,7 +1,7 @@
 /*
 @licstart The following is the entire license notice for the JavaScript code in this page.
 
-Copyright (c) 2016-2022 Jack126Guy <http://github.com/jack126guy>
+Copyright (c) 2016-2025 Jack126Guy <http://github.com/jack126guy>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
