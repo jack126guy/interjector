@@ -79,14 +79,12 @@ THE SOFTWARE.
 
 	//Deal with "a/an" selection
 	function registerAAnUpdates() {
-		document.getElementById('ijtr-option-a')
-			.addEventListener('click', function() {
-				setTiedText('a-an', 'a');
+		var optionElements = document.querySelectorAll('#interjector input[name=option-a-an]');
+		for (var i = 0; i < optionElements.length; i++) {
+			optionElements[i].addEventListener('click', function (e) {
+				setTiedText('a-an', e.target.value);
 			});
-		document.getElementById('ijtr-option-an')
-			.addEventListener('click', function() {
-				setTiedText('a-an', 'an');
-			});
+		}
 	}
 
 	registerFillUpdates();
