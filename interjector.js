@@ -40,26 +40,17 @@ THE SOFTWARE.
 		'osys',
 	];
 
-	//Get the element for filling in the value
-	function getFillElement(name) {
-		return document.getElementById('ijtr-fill-' + name);
-	}
-
-	//Get the elements that are tied to the value
-	function getTiedElements(name) {
-		return document.querySelectorAll('#interjector .tied-' + name);
-	}
-
 	//Register an event handler on update
 	function registerUpdateHandler(name) {
-		getFillElement(name).addEventListener('keyup', function (e) {
+		var fillElement = document.getElementById('ijtr-fill-' + name);
+		fillElement.addEventListener('keyup', function (e) {
 			setTiedText(name, e.target.value);
 		});
 	}
 
 	//Set the text on the tied elements
 	function setTiedText(name, text) {
-		var tiedElements = getTiedElements(name);
+		var tiedElements = document.querySelectorAll('#interjector .tied-' + name);
 		for (var i = 0; i < tiedElements.length; i++) {
 			tiedElements[i].textContent = text;
 		};
